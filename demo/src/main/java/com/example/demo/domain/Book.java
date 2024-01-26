@@ -27,6 +27,10 @@ public class Book {
 
     }
 
+    // Default constructor
+    public Book() {
+    }
+
     public long getId() {
         return id;
     }
@@ -66,7 +70,6 @@ public class Book {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", btn='" + btn + '\'' +
-                ", authors=" + authors +
                 '}';
     }
 
