@@ -1,14 +1,10 @@
 package com.example.dependencyinjection;
 
-import com.example.dependencyinjection.controller.ConstructorInjectedController;
-import com.example.dependencyinjection.controller.MyController;
-import com.example.dependencyinjection.controller.PropertyInjectedController;
-import com.example.dependencyinjection.controller.SetterInjection;
-import org.springframework.boot.ApplicationArguments;
+import com.example.dependencyinjection.controller.*;
+import com.example.dependencyinjection.services.I18GreetingService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextInitializer;
 
 @SpringBootApplication
 public class DependencyInjectionApplication {
@@ -22,8 +18,6 @@ public class DependencyInjectionApplication {
 
 		System.out.println(greeting);
 
-		System.out.println("--------------------- Property");
-
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
 		System.out.println("Property injection " + propertyInjectedController.getGreeting());
 
@@ -32,6 +26,9 @@ public class DependencyInjectionApplication {
 
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 		System.out.println("constructor injected controller " + constructorInjectedController.getGreeting());
+
+		I18Controller i18Controller = (I18Controller) ctx.getBean("i18Controller");
+		System.out.println("I18N " + i18Controller.sayHello());
 
 	}
 
